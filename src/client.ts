@@ -55,6 +55,7 @@ export class Client {
 	}
 
 	private onConnect(socket, data){
+
 		this.socket = socket;
 		this.state = SocketConnectionState.CONNECTED;
 		if (this.listener && this.listener.onConnect) this.listener.onConnect(data);
@@ -76,21 +77,17 @@ export class Client {
 
 	sendJoin(message: string){
 		if (!this.socket){
-			console.log('Tryed to emit join but no socket established');
+			console.log('Tried to emit join but no socket established');
 			return;
 		}
-
 		this.socket.emit('join', message);
 	}
 
 	sendData(data: string){
-
 		if (!this.socket){
-			console.log('Tryed to emit data but no socket established');
+			console.log('Tried to emit data but no socket established');
 			return;
 		}
-
 		this.socket.emit('data', data);
-
 	}
 }

@@ -1,0 +1,61 @@
+{
+  "name": "speed-gate-emitter",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Toni Moeckel",
+    "email": "info@tonimoeckel.com",
+    "url": "tonimoeckel.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonimoeckel/SpeedGate-Emitter.git"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 6.9.0"
+  },
+  "devDependencies": {
+    "@types/jest": "~18.1.0",
+    "@types/node": "~6.0.62",
+    "jest": "~18.1.0",
+    "rimraf": "~2.5.4",
+    "tslint": "~4.4.2",
+    "tslint-microsoft-contrib": "~4.0.0",
+    "typescript": "~2.1.5"
+  },
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.release.json",
+    "watch": "tsc -w -p tsconfig.release.json",
+    "lint": "tslint -t stylish '{src,__tests__}/**/*.{ts,tsx}'",
+    "test": "npm run test-only",
+    "test-only": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "testRegex": "<rootDir>(__tests__/).*\\.(test|spec)\\.(ts|js)$",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/**/*.d.ts"
+    ]
+  },
+  "dependencies": {
+    "socket.io": "^1.7.3",
+    "tslib": "~1.5.0",
+    "underscore": "^1.8.3"
+  }
+}
