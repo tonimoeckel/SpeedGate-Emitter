@@ -6,7 +6,7 @@ class Settings {
             "host": "127.0.0.1",
             "port": 9000,
             "emitterId": "Start",
-            "trigger": "simulation",
+            "trigger": "ir",
             "simulationRunTime": 2000,
             "simulationPauseTime": 500,
         };

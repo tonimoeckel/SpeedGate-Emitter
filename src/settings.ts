@@ -9,7 +9,7 @@ export class Settings {
 
             "emitterId": "Start",
 
-            "trigger": "simulation",
+            "trigger": "ir",
             "simulationRunTime": 2000,
             "simulationPauseTime": 500,
         }

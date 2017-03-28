@@ -7,7 +7,7 @@ class SimulationTrigger extends abstract_trigger_1.Trigger {
     }
     init() {
         this.runTime = this.config.simulationRunTime || 4000;
-        this.pauseTime = this.config.simulationPauseTime || 500;
+        this.pauseTime = this.config.simulationPauseTime || 4500;
         this.data = "1";
     }
     start() {

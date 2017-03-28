@@ -2,9 +2,11 @@
 import {ClientConfig, SocketListener, Client} from './client';
 import {SimulationTrigger} from "./simulation.trigger";
 import {Trigger} from "./abstract.trigger";
+import {IRTrigger} from "./ir.trigger";
 
 const triggerMap = {
-  "simulation": SimulationTrigger
+  "simulation": SimulationTrigger,
+  "ir": IRTrigger
 };
 
 export interface EmitterConfig extends ClientConfig {
@@ -45,9 +47,8 @@ export class Emitter {
 
   start(){
 
-    this.startTrigger();
-
     this.stop();
+    this.startTrigger();
 
     this.client = new Client(this.config, this.listener);
     this.client.connect();

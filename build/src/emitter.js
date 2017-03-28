@@ -1,8 +1,10 @@
 'use strict';
 const client_1 = require("./client");
 const simulation_trigger_1 = require("./simulation.trigger");
+const ir_trigger_1 = require("./ir.trigger");
 const triggerMap = {
-    "simulation": simulation_trigger_1.SimulationTrigger
+    "simulation": simulation_trigger_1.SimulationTrigger,
+    "ir": ir_trigger_1.IRTrigger
 };
 class Emitter {
     constructor(config) {
@@ -24,8 +26,8 @@ class Emitter {
         };
     }
     start() {
-        this.startTrigger();
         this.stop();
+        this.startTrigger();
         this.client = new client_1.Client(this.config, this.listener);
         this.client.connect();
     }
