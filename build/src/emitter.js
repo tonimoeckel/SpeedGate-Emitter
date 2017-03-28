@@ -14,23 +14,23 @@ class Emitter {
             onConnect: (data) => {
                 console.log('Client connected: ', data);
                 this.client.sendJoin(config.emitterId);
-                this.startTrigger();
             },
             onEvent: (data) => {
                 console.log('Message received: ', data);
             },
             onDisconnect: () => {
                 console.log('Client disconnected');
-                this.stopTrigger();
             }
         };
     }
     start() {
+        this.startTrigger();
         this.stop();
         this.client = new client_1.Client(this.config, this.listener);
         this.client.connect();
     }
     stop() {
+        this.stopTrigger();
         if (this.client) {
             this.client.disconnect();
         }

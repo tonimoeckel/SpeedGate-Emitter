@@ -52,17 +52,17 @@ class Client {
     }
     sendJoin(message) {
         if (!this.socket) {
-            console.log('Tried to emit join but no socket established');
             return;
         }
+        console.log('Emit join:', message);
         this.socket.emit('join', message);
     }
     sendData(data) {
         if (!this.socket) {
-            console.log('Tried to emit data but no socket established');
             return;
         }
-        this.socket.emit('data', data);
+        console.log('Emit data:', data);
+        this.socket.emit('emit', data);
     }
 }
 exports.Client = Client;

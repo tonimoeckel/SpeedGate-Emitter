@@ -32,20 +32,20 @@ export class Emitter {
       onConnect: (data) => {
         console.log('Client connected: ',data);
         this.client.sendJoin(config.emitterId);
-        this.startTrigger();
       },
       onEvent: (data) => {
         console.log('Message received: ',data);
       },
       onDisconnect: () => {
         console.log('Client disconnected');
-        this.stopTrigger();
       }
     }
 
   }
 
   start(){
+
+    this.startTrigger();
 
     this.stop();
 
@@ -55,6 +55,8 @@ export class Emitter {
   }
 
   stop(){
+
+    this.stopTrigger();
 
     if (this.client){
       this.client.disconnect();
